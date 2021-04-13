@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 from flask import request, jsonify
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy_serializer import SerializerMixin
 
