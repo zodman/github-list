@@ -1,7 +1,6 @@
 import pytest
-from app import app, Entry
+from app import app
 import seed
-from flask_sqlalchemy import SQLAlchemy
 
 
 def test_seed(mocker, faker):
@@ -15,16 +14,8 @@ def test_seed(mocker, faker):
 
 @pytest.fixture
 def client(faker):
-    # app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///tmp.db"
-    # db = SQLAlchemy(app)
-    # db.create_all()
     with app.test_client() as client:
         with app.app_context():
-            # params = [{'github_id': faker.random_int()} for i in range(100)]
-            # for p in params:
-            #    e = Entry(**p)
-            #    db.session.add(e)
-            # db.session.commit()
             yield client
 
 
