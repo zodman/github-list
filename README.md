@@ -31,9 +31,9 @@ python -m http.server  --directory htmlcov/
 
 Timelapse:
 
-6pm-8pm build the seed.py
-10pm-11pm unittest of seed.py
-11-1am flask app and unittest
-1am-2am deploy on ci
+    6pm-8pm build the seed.py
+    10pm-11pm unittest of seed.py
+    11-1am flask app and unittest
+    1am-2am deploy on ci
 
-total:  ~7hrs
+    total:  ~7hrs
