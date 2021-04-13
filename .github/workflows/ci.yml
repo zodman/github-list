@@ -29,7 +29,6 @@ jobs:
       env: 
         COVERALLS_REPO_TOKEN: ${{secrets.COVERALLS_REPO_TOKEN}}
       run: |
-        fab init-db
         fab test
         coveralls
   deploy:
