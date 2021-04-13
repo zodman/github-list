@@ -22,8 +22,7 @@ def deploy(ctx):
     run("find . -name '__pycache__' |xargs rm -rf ", echo=True)
     rsync(ctx, ".", "apps/github_list", exclude=exclude_dirs)
     with ctx.cd("apps/github_list"):
-        with ctx.prefix("source ~/apps/spy_agency/.env/bin/activate"):
+        with ctx.prefix("source ~/apps/github_list/.env/bin/activate"):
             ctx.run("pip install -r requirements.txt")
-            ctx.run("python seed.py")
     ctx.run("sudo supervisorctl restart gihub_list")
 
