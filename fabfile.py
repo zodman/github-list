@@ -12,6 +12,10 @@ def test(c):
     run("coverage html")
 
 @task
+def compile(c):
+    run("pip-compile requirements.in -o requirements.txt")
+
+@task
 def deploy(ctx):
     run("yarn install", echo=True)
     run("yarn run build", echo=True)

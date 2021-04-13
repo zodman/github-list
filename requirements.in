@@ -17,4 +17,4 @@ faker
 patchwork
 fabric
 gunicorn
-coverwalls
+coveralls
