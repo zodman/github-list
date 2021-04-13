@@ -3,8 +3,6 @@
     "build": "browserify -t browserify-css -p esmify static/src/main.js -o static/dist/main.js"
   },
   "dependencies": {
-    "alpine-turbo-drive-adapter": "^1.0.2",
-    "alpinejs": "^2.8.2",
     "browserify": "^17.0.0",
     "browserify-css": "^0.15.0",
     "bulma": "^0.9.2",
