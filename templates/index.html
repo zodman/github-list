@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="table-container">
+  <table class="table is-striped is-hoverable is-fullwidth">
+    <thead class="">
+      <tr class="has-background-dark">
+        <th class="has-text-white">ID</th>
+        <th class="has-text-white"> Github </th>
+        <th colspan="2" class="has-text-white">Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for entry in entries  %}
+      <tr>
+        <td>{{entry.id}}</td>
+        <td>
+          <div class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <figure class="image is-64x64">
+                  <a href="{{entry.github_profile}}" target="_blank">
+                    <img src="{{entry.image_url}}" alt="image of {{entry.username}}"/>
+                  </a>
+                </figure>
+              </div>
+              <div class="level-item">
+                <a href="{{entry.image_url}}" target="_blank">
+                  @{{entry.username}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          {{entry.type}}
+        </td>
+        <td>
+          <a href="{{entry.github_profile}}" target="_blank">Github profile</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+  {% include "pagination.html" %}
+{% endblock content %}
