@@ -24,5 +24,5 @@ def deploy(ctx):
     with ctx.cd("apps/github_list"):
         with ctx.prefix("source ~/apps/github_list/.env/bin/activate"):
             ctx.run("pip install -r requirements.txt")
-    ctx.run("sudo supervisorctl restart gihub_list")
+    ctx.run("sudo supervisorctl restart github_list")
 
