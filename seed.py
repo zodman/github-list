@@ -12,8 +12,12 @@ URL = 'https://api.github.com/users'
 
 HEADERS = {}
 
+__all__ = [
+    'main'
+]
 
-def process_headers():
+
+def __process_headers():
     if os.environ.get("TOKEN"):
         token = os.environ["TOKEN"]
         HEADERS.update({'Authorization': f'token {token}'})
@@ -31,18 +35,22 @@ def fetch_data(params):
     return data
 
 
-def main(total):
-    init()
-    entries = download_github(total)
+def populate_database(entries):
     table = db["entries"]
     for entry in tqdm.tqdm(entries, desc="inserting on sqlite"):
         table.insert(entry)
 
 
+def main(total):
+    init()
+    entries = download_github(total)
+    populate_database(entries)
+
+
 def download_github(total):
     params = {'per_page': 10, 'since': 0}
     results = []
-    process_headers()
+    __process_headers()
     with tqdm.tqdm(total=total, desc="fetching from GITHUB") as pbar:
         while True:
             data = fetch_data(params)
@@ -68,7 +76,7 @@ def init():
         os.remove(FILE_DB)
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # pragma: no cover
     parser = argparse.ArgumentParser(
         description="Populate database from github")
     parser.add_argument("total", default=150, type=int, nargs='?')

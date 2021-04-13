@@ -1,8 +1,10 @@
 <nav class="pagination">
   <ul class="pagination-list">
-    {% for page_ in pages  %}
+    {%set to=total/limit %}
+    {%set to=to|round(method='ceil')|int %}
+    {% for page_ in range(1, to+1) %}
     <li>
-      <a class="pagination-link {% if page == page_ %} is-current {% endif %}" href="?page={{page_}}">
+      <a class="pagination-link {% if page == page_ %} is-current {% endif %}" href="?page={{page_}}&limit={{limit}}">
         {{page_}}
       </a>
     </li>

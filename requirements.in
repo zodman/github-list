@@ -3,5 +3,8 @@ dataset
 fabric
 tqdm
 
-
 flask
+pytest
+pytest-mock
+pytest-cov
+faker

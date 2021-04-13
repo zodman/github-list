@@ -1,0 +1,9 @@
+[run]
+branch = true
+omit =  .env/*, node_modules/*
+source = .
+
+[report]
+show_missing = true
+exclude_lines = 
+    def __str__
