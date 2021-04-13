@@ -1,5 +1,8 @@
 # Fetch github
 
+[![Coverage Status](https://coveralls.io/repos/github/zodman/github-list/badge.svg)](https://coveralls.io/github/zodman/github-list)
+
+
 * Install
 ```bash
 yarn install
