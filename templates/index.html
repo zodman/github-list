@@ -1,21 +1,34 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h1 class="title">
+  Github table
+</h1>
+
+
+<a href="?format=json" class="is-pulled-right" target="_blank">json Format</a>
 {% include "pagination.html" %}
 <div class="table-container">
   <table class="table is-striped is-hoverable is-fullwidth">
     <thead class="">
       <tr class="has-background-dark">
-        <th colspan="2" class="has-text-white">ID</th>
-        <th class="has-text-white"> Github </th>
-        <th colspan="2" class="has-text-white">Type</th>
+        <th  class="has-text-white">
+          ID
+        </th>
+        <th class="has-text-white">Github ID</th>
+        <th class="has-text-white">
+         Github
+        </th>
+        <th colspan="2" class="has-text-white">
+          Type
+        </th>
       </tr>
     </thead>
     <tbody>
       {% for entry in entries  %}
       <tr>
-        <td>{{loop.index}}</td>
         <td>{{entry.id}}</td>
+        <td>{{entry.github_id}}</td>
         <td>
           <div class="level">
             <div class="level-left">

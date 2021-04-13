@@ -2,11 +2,9 @@ import argparse
 import requests
 import os
 import tqdm
-import dataset
+from app import db, Entry
 
 FILE_DB = "local.db"
-
-db = dataset.connect(f"sqlite:///{FILE_DB}")
 
 URL = 'https://api.github.com/users'
 
@@ -36,9 +34,10 @@ def fetch_data(params):
 
 
 def populate_database(entries):
-    table = db["entries"]
     for entry in tqdm.tqdm(entries, desc="inserting on sqlite"):
-        table.insert(entry)
+        entry_db = Entry(**entry)
+        db.session.add(entry_db)
+    db.session.commit()
 
 
 def main(total):
@@ -58,7 +57,7 @@ def download_github(total):
             for d in data:
                 entry = {
                     'username': d.get("login"),
-                    'id': d.get("id"),
+                    'github_id': d.get("id"),
                     'image_url': d.get("avatar_url"),
                     'type': d.get("type"),
                     'github_profile': d.get("html_url")
@@ -74,6 +73,8 @@ def download_github(total):
 def init():
     if os.path.exists(FILE_DB):
         os.remove(FILE_DB)
+    db.create_all()
+    
 
 
 if __name__ == "__main__": # pragma: no cover

@@ -1,9 +1,15 @@
+# seed.py cli
 requests
 dataset
 fabric
 tqdm
 
-flask
+# flask
+flask-sqlalchemy
+sqlalchemy-serializer
+Flask
+
+# unittest
 pytest
 pytest-mock
 pytest-cov

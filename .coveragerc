@@ -1,6 +1,6 @@
 [run]
 branch = true
-omit =  .env/*, node_modules/*
+omit =  .env/*, node_modules/*, fabfile.py
 source = .
 
 [report]
