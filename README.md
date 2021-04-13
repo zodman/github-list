@@ -25,3 +25,5 @@ source .env/bin/activate
 fab test
 python -m http.server  --directory htmlcov/
 ```
+
+![](https://i.imgur.com/rr5fYwJ.png)
