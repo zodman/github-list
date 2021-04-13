@@ -16,3 +16,5 @@ faker
 #deploy
 patchwork
 fabric
+gunicorn
+coverwalls
