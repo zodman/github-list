@@ -1,11 +1,9 @@
 # seed.py cli
 requests
-dataset
-fabric
 tqdm
 
 # flask
-flask-sqlalchemy
+flask-sqlalchemy==2.5.1
 sqlalchemy-serializer
 Flask
 
@@ -14,3 +12,7 @@ pytest
 pytest-mock
 pytest-cov
 faker
+
+#deploy
+patchwork
+fabric
